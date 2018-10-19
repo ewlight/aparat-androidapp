@@ -2,4 +2,6 @@
     <string name="app_name">aparatapp</string>
     <string name="app_nama">APARAT</string>
     <string name="app_pengumuman">Pengumuman</string>
+    <string name="facebook_app_id">1455289791152007</string>
+    <string name="fb_login_protocol_scheme">fb1455289791152007</string>
 </resources>
