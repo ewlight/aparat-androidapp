@@ -20,18 +20,24 @@
             android:src="@drawable/logo"
             android:gravity="center"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/buttonFacebook"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Login With Facebook"
-        android:layout_gravity="center"
-        android:gravity="center"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:layout_below="@+id/layoutLogoWrapper"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#002171"
-        android:textColor="#FFFFFF"
+        android:layout_centerInParent="true"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInfo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="12sp"
+        android:layout_below="@+id/login_button"
+        android:layout_centerInParent="true"
         />
 </RelativeLayout>
