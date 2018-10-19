@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">aparatapp</string>
+    <string name="app_nama">APARAT</string>
+    <string name="app_pengumuman">Pengumuman</string>
 </resources>
