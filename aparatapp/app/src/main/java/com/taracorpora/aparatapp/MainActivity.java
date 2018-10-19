@@ -16,6 +16,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.logging.Logger;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private LoginButton fbButton;
     private TextView info;
     private CallbackManager callbackManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,4 +76,6 @@ public class MainActivity extends AppCompatActivity {
         fbButton = (LoginButton) findViewById(R.id.login_button);
         info = (TextView) findViewById(R.id.textInfo);
     }
+
+
 }
