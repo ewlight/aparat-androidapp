@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "920289605329",
+    "firebase_url": "https://aparatapp-eca52.firebaseio.com",
+    "project_id": "aparatapp-eca52",
+    "storage_bucket": "aparatapp-eca52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920289605329:android:396715fe3cabdc98",
+        "android_client_info": {
+          "package_name": "com.taracorpora.aparatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920289605329-v50eq0ao77ugm4gtl1pdbtnc6tu5vkhr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.taracorpora.aparatapp",
+            "certificate_hash": "57bb7b890ea3e81146c06aad82f7eee8afa78925"
+          }
+        },
+        {
+          "client_id": "920289605329-0403sdj9fuu5a7k8mfrqslmpcffdgjf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClKHoyNSow61JV7mGum2vKXnZW01r2bXc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920289605329-0403sdj9fuu5a7k8mfrqslmpcffdgjf0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
