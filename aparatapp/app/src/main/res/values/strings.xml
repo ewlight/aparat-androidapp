@@ -4,4 +4,9 @@
     <string name="app_pengumuman">Pengumuman</string>
     <string name="facebook_app_id">1455289791152007</string>
     <string name="fb_login_protocol_scheme">fb1455289791152007</string>
+    <string name="pengaturan_akun">Akun</string>
+    <string name="pengaturan_pemberitahuan">Notifikasi</string>
+    <string name="pengaturan_group">Group</string>
+    <string name="pengaturan_bahasa">Bahasa</string>
+    <string name="pengaturan_waktu">Waktu</string>
 </resources>
