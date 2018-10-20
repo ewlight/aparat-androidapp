@@ -4,9 +4,10 @@
     <string name="app_pengumuman">Pengumuman</string>
     <string name="facebook_app_id">1455289791152007</string>
     <string name="fb_login_protocol_scheme">fb1455289791152007</string>
-    <string name="pengaturan_akun">Akun</string>
-    <string name="pengaturan_pemberitahuan">Notifikasi</string>
-    <string name="pengaturan_group">Group</string>
-    <string name="pengaturan_bahasa">Bahasa</string>
-    <string name="pengaturan_waktu">Waktu</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="tab_text_1">Group</string>
+    <string name="tab_text_2">Pengumuman</string>
+    <string name="tab_text_3">Pengaturan</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
