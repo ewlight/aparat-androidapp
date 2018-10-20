@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">APARAT</string>
+    <string name="tab_text_1">Group</string>
+    <string name="tab_text_2">Pengumuman</string>
+    <string name="tab_text_3">Pengaturan</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_home">HomeActivity</string>
+</resources>
