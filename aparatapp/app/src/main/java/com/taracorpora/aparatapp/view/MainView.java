@@ -1,6 +1,6 @@
 package com.taracorpora.aparatapp.view;
 
 public interface MainView {
-    void onSuccess();
+    void onSuccess(String fbid);
     void onError();
 }

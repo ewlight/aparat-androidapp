@@ -13,5 +13,5 @@ public interface AparatService {
     Observable<AparatPesertaModel> login(@Body AparatPesertaModel aparatPesertaModel);
 
     @GET("/profile")
-    Observable<AparatPesertaModel> profile(@Query("fbid") int fbid);
+    Observable<AparatPesertaModel> profile(@Query("fbid") String fbid);
 }
