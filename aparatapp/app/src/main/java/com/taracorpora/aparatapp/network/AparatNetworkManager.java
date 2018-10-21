@@ -27,7 +27,7 @@ public class AparatNetworkManager {
     public static final String DATE_FORMAT = "yyyy-MM-dd'T'hh:mm:ssZ";
     private GeneralNetworkHandler generalNetworkHandler;
     private static final String TAG = AparatNetworkManager.class.getSimpleName();
-    private static final String BASE_URL = "http://192.168.0.101/webproject/aparat-backendapp/index.php/aparat";
+    private static final String BASE_URL = "http://taracorpora.com/aparat/index.php/apara";
 
     public AparatNetworkManager(GeneralNetworkHandler generalNetworkHandler) {
         this.generalNetworkHandler = generalNetworkHandler;
