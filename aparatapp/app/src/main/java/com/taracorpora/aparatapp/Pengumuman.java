@@ -26,7 +26,7 @@ public class Pengumuman extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
         context = getActivity();
-        return inflater.inflate(R.layout.pengumuman1, container, false);
+        return inflater.inflate(R .layout.pengumuman1, container, false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
