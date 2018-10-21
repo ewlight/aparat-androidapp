@@ -11,3 +11,4 @@
 /.idea/*
 /.idea/misc.xml
 /.idea/caches/*
+*.ser
