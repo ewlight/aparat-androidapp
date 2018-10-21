@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
         if(isLoggedIn) {
-            submitFB();
+            submitFB(accessToken.getUserId());
         }
     }
 
@@ -96,8 +96,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void submitFB() {
+    private void submitFB(String fbid) {
         Intent intentHome = new Intent(this, HomeActivity.class);
+        intentHome.putExtra("fbid",fbid);
         startActivity(intentHome);
         finish();
     }
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                     AccessToken currentAccessToken) {
 
                 if (currentAccessToken == null){
-                   LoginManager.getInstance().logOut();
+                    LoginManager.getInstance().logOut();
                 }
             }
         };
@@ -124,8 +125,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
 
     @Override
-    public void onSuccess() {
-        submitFB();
+    public void onSuccess(String fbid) {
+        submitFB(fbid);
 
     }
 

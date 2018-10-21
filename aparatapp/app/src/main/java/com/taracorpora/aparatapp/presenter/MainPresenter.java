@@ -23,7 +23,7 @@ public class MainPresenter implements GeneralNetworkHandler{
     private AparatNetworkManager aparatNetworkManager;
     private MainView mainView;
     private String TAG = MainPresenter.this.getClass().getSimpleName();
-    PrefUtil prefUtil;
+
 
     public MainPresenter(MainView mainView) {
         this.mainView = mainView;
@@ -58,7 +58,7 @@ public class MainPresenter implements GeneralNetworkHandler{
                     .subscribe(new Action1<AparatPesertaModel>() {
                         @Override
                         public void call(AparatPesertaModel aparatPesertaModel) {
-                            mainView.onSuccess();
+                            mainView.onSuccess(id);
                         }
                     }, throwable -> {
                         mainView.onError();
