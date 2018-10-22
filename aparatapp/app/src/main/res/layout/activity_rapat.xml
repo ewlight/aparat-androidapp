@@ -28,6 +28,7 @@
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:background="#00DBFF"
+        android:id="@+id/tanggal"
         >
 
         <TextView
@@ -35,16 +36,83 @@
             android:layout_height="wrap_content"
             android:hint="Pilih Tangal"
             android:id="@+id/tvdate"
-            android:textSize="35dp"
+            android:textSize="30dp"
+            android:layout_gravity="center"
             android:gravity="center"
+            android:background="#FFFFFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
         />
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/kalender"
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tanggal"
+        android:id="@+id/jam"
+        android:background="#00DBFF"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Pilih Waktu"
+            android:textSize="30dp"
+            android:background="#FFFFFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/jam"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/jam"
+        android:id="@+id/isi"
+        android:background="#00DBFF"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tulis surat"
+            android:gravity="top"
+            android:background="#FFFFFF"
+            android:layout_marginTop="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/isi"
+        android:background="#000000"
+        android:layout_marginTop="10dp"
+        >
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="SEND"
+            android:textSize="30dp"
+            android:background="#FFFFFF"
+            />
+
+    </LinearLayout>
+
 
 </RelativeLayout>
