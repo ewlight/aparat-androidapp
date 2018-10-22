@@ -5,19 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".RapatActivity">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Pilih Tangal"
-        android:id="@+id/tvdate"
-        android:layout_marginTop="10dp"
-        android:textSize="35dp"
-        android:gravity="center"
-        />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/title"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00DBFF"
+            android:text="Tulis Judul "
+            android:textSize="30dp"
+            android:layout_marginTop="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:background="#00DBFF"
+        >
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Pilih Tangal"
+            android:id="@+id/tvdate"
+            android:textSize="35dp"
+            android:gravity="center"
+        />
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/kalender"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            />
     </LinearLayout>
 
 </RelativeLayout>
