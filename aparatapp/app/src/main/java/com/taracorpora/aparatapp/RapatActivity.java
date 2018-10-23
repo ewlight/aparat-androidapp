@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -22,7 +23,7 @@ public class RapatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rapat);
-        mDisplayDate = (TextView) findViewById(R.id.tvdate);
+        mDisplayDate = (ImageView) findViewById(R.id.logokalender);
 
         mDisplayDate. setOnClickListener(new View.OnClickListener() {
             @Override
