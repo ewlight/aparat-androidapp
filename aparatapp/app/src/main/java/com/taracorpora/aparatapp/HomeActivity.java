@@ -1,9 +1,9 @@
 package com.taracorpora.aparatapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -12,13 +12,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.taracorpora.aparatapp.fragment.GroupFragment;
+import com.taracorpora.aparatapp.fragment.PengaturanFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private String fbid;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout = findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
@@ -82,14 +84,14 @@ public class HomeActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    Group group1 = new Group();
-                    return group1;
+                    GroupFragment group = GroupFragment.newInstance(fbid);
+                    return  group;
                 case 1:
                     Pengumuman pengumuman1 = new Pengumuman();
                     return pengumuman1;
                 case 2:
-                    Pengaturan pengaturan1 = Pengaturan.newInstance(fbid);
-                    return pengaturan1;
+                    PengaturanFragment pengaturanFragment1 = PengaturanFragment.newInstance(fbid);
+                    return pengaturanFragment1;
 
             }
             return null;
@@ -105,5 +107,30 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void generateNewGroupDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Buat GroupFragment Baru");
+        builder.setIcon(R.drawable.logo);
+        builder.setMessage("Masukkan nama group");
+        EditText textGroupName = new EditText(this);
+        builder.setView(textGroupName);
+        builder.setPositiveButton("Simpan", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String text = textGroupName.getText().toString();
+                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+                mViewPager.setCurrentItem(0, true);
+            }
+        });
+
+        builder.setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.create().show();
     }
 }

@@ -1,30 +1,33 @@
-package com.taracorpora.aparatapp;
+package com.taracorpora.aparatapp.fragment;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.login.LoginManager;
+import com.taracorpora.aparatapp.HomeActivity;
+import com.taracorpora.aparatapp.R;
+import com.taracorpora.aparatapp.dialog.EditNameDialogListener;
+import com.taracorpora.aparatapp.dialog.NewGroupDialogFragment;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
 import com.taracorpora.aparatapp.presenter.PengaturanPresenter;
 import com.taracorpora.aparatapp.view.PengaturanView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Pengaturan extends Fragment implements PengaturanView {
+public class PengaturanFragment extends Fragment implements PengaturanView, EditNameDialogListener {
 
     private PengaturanPresenter presenter;
     private CircleImageView profileCircleImage;
@@ -36,11 +39,12 @@ public class Pengaturan extends Fragment implements PengaturanView {
     private Button logoutButton;
     private String fbid;
     private HomeActivity parentActivity;
+    private Context context;
 
-    public static Pengaturan newInstance(String fbid) {
+    public static PengaturanFragment newInstance(String fbid) {
         Bundle args = new Bundle();
         args.putString("fbid", fbid);
-        Pengaturan fragment = new Pengaturan();
+        PengaturanFragment fragment = new PengaturanFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,6 +64,7 @@ public class Pengaturan extends Fragment implements PengaturanView {
     public void onAttach(Context context) {
         super.onAttach(context);
         parentActivity = (HomeActivity) getActivity();
+        this.context = context;
     }
 
     @Nullable
@@ -76,6 +81,7 @@ public class Pengaturan extends Fragment implements PengaturanView {
         presenter = new PengaturanPresenter(this);
         bindViewById(view);
         addLogoutListener();
+        addGroupButtonListener();
         presenter.showProfile(fbid);
 
     }
@@ -126,6 +132,30 @@ public class Pengaturan extends Fragment implements PengaturanView {
 
             }
         });
+    }
+
+    private void addGroupButtonListener() {
+        createGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                parentActivity.generateNewGroupDialog();
+            }
+        });
+    }
+
+    private void showNewGroupDialog() {
+        FragmentManager fm = getFragmentManager();
+        NewGroupDialogFragment dialog = NewGroupDialogFragment.newInstance("Membuat GroupFragment Baru");
+        dialog.setTargetFragment(PengaturanFragment.this, 300);
+        dialog.show(fm, "fragment_edit_name");
+    }
+
+
+
+
+    @Override
+    public void onFinishEditDialog(String inputText) {
+        Toast.makeText(parentActivity, "Hi, " + inputText, Toast.LENGTH_SHORT).show();
     }
 
 
