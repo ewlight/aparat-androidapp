@@ -1,9 +1,7 @@
-package com.taracorpora.aparatapp;
+package com.taracorpora.aparatapp.fragment;
 
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,9 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.login.LoginManager;
+import com.taracorpora.aparatapp.HomeActivity;
+import com.taracorpora.aparatapp.R;
 import com.taracorpora.aparatapp.dialog.EditNameDialogListener;
 import com.taracorpora.aparatapp.dialog.NewGroupDialogFragment;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
@@ -29,7 +27,7 @@ import com.taracorpora.aparatapp.view.PengaturanView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Pengaturan extends Fragment implements PengaturanView, EditNameDialogListener {
+public class PengaturanFragment extends Fragment implements PengaturanView, EditNameDialogListener {
 
     private PengaturanPresenter presenter;
     private CircleImageView profileCircleImage;
@@ -41,11 +39,12 @@ public class Pengaturan extends Fragment implements PengaturanView, EditNameDial
     private Button logoutButton;
     private String fbid;
     private HomeActivity parentActivity;
+    private Context context;
 
-    public static Pengaturan newInstance(String fbid) {
+    public static PengaturanFragment newInstance(String fbid) {
         Bundle args = new Bundle();
         args.putString("fbid", fbid);
-        Pengaturan fragment = new Pengaturan();
+        PengaturanFragment fragment = new PengaturanFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -65,6 +64,7 @@ public class Pengaturan extends Fragment implements PengaturanView, EditNameDial
     public void onAttach(Context context) {
         super.onAttach(context);
         parentActivity = (HomeActivity) getActivity();
+        this.context = context;
     }
 
     @Nullable
@@ -145,8 +145,8 @@ public class Pengaturan extends Fragment implements PengaturanView, EditNameDial
 
     private void showNewGroupDialog() {
         FragmentManager fm = getFragmentManager();
-        NewGroupDialogFragment dialog = NewGroupDialogFragment.newInstance("Membuat Group Baru");
-        dialog.setTargetFragment(Pengaturan.this, 300);
+        NewGroupDialogFragment dialog = NewGroupDialogFragment.newInstance("Membuat GroupFragment Baru");
+        dialog.setTargetFragment(PengaturanFragment.this, 300);
         dialog.show(fm, "fragment_edit_name");
     }
 

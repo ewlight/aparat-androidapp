@@ -11,10 +11,12 @@ import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.taracorpora.aparatapp.model.AparatGroupModel;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.util.List;
 
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
@@ -141,6 +143,10 @@ public class AparatNetworkManager {
 
     public Observable<AparatPesertaModel> getPeserta(String fbid) {
         return addInterceptor(aparatService.profile(fbid));
+    }
+
+    public Observable<List<AparatGroupModel>> getGroup(String fb) {
+        return addInterceptor(aparatService.grouplist(fb));
     }
 
 
