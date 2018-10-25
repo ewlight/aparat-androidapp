@@ -111,7 +111,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void generateNewGroupDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Buat GroupFragment Baru");
+        builder.setTitle("Buat Group Baru");
         builder.setIcon(R.drawable.logo);
         builder.setMessage("Masukkan nama group");
         EditText textGroupName = new EditText(this);
