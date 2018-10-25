@@ -107,7 +107,7 @@ public class GroupFragment extends Fragment implements GroupView {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                parentActivity.openGroupDetailPage(listGroup.get(i).id);
+                parentActivity.openGroupDetailPage(listGroup.get(i).id, listGroup.get(i).name);
             }
         });
 

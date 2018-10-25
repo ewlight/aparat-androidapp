@@ -5,16 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GroupDetailActivity">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="#3F51B5"
-    android:id="@+id/tabadmin">
+    android:id="@+id/tabadmin"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
     <ImageView
+        android:id="@+id/image_add_new_member"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/addfriend"
+        android:src="@drawable/icon_add_group"
         android:layout_gravity="left"
         android:layout_weight="1"/>
     <ImageView
