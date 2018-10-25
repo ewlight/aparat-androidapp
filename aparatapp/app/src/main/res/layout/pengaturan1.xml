@@ -52,16 +52,7 @@
                 android:layout_marginTop="10dp"
                 android:id="@+id/textid"
                 />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Buat Group"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/buttonbuatgroup"
-                android:background="#3B5998"
-                android:textColor="#FFFFFF"
-                />
+            
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
