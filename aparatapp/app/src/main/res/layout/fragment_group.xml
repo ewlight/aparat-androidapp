@@ -12,5 +12,14 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:scrollbars="vertical" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_add_new_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/plus_icon"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="50dp"/>
 
 </RelativeLayout>
