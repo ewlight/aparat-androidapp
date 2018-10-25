@@ -2,6 +2,7 @@ package com.taracorpora.aparatapp.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.taracorpora.aparatapp.HomeActivity;
@@ -102,6 +104,14 @@ public class GroupFragment extends Fragment implements GroupView {
     public void showListView(List<AparatGroupModel> listGroup) {
         groupAdapter = new AparatGroupAdapter(context, listGroup);
         listView.setAdapter(groupAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                parentActivity.openGroupDetailPage(listGroup.get(i).id);
+            }
+        });
 
     }
+
+
 }

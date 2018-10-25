@@ -1,20 +1,20 @@
 package com.taracorpora.aparatapp.model;
 
 public class AparatGroupModel {
-    public int idgroup;
+    public int id;
     public String name;
 
-    public AparatGroupModel(int idgroup, String name) {
-        this.idgroup = idgroup;
+    public AparatGroupModel(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public int getIdgroup() {
-        return idgroup;
+    public int getId() {
+        return id;
     }
 
-    public void setIdgroup(int idgroup) {
-        this.idgroup = idgroup;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

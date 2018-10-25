@@ -16,11 +16,18 @@ public class GroupDetailActivity extends AppCompatActivity {
     private ListView listanggota;
     private ListanggotaAdapter adapter;
     private List<ListanggotaModel> mlistanggotaModelList;
+    private String fbid;
+    private int groupId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_detail);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            fbid = bundle.getString("fbid");
+            groupId = bundle.getInt("groupid");
+        }
         loadList();
 
     }
@@ -28,7 +35,7 @@ public class GroupDetailActivity extends AppCompatActivity {
     private void loadList() {
         listanggota = findViewById(R.id.listanggota);
         mlistanggotaModelList = new ArrayList<ListanggotaModel>();
-        mlistanggotaModelList.add(new ListanggotaModel("namaanggota"));
+        mlistanggotaModelList.add(new ListanggotaModel("fbid: "+fbid+" groupId: "+groupId));
         adapter = new ListanggotaAdapter(this, mlistanggotaModelList);
         listanggota.setAdapter(adapter);
         listanggota.setOnItemClickListener(new AdapterView.OnItemClickListener() {

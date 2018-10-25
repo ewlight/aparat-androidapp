@@ -35,11 +35,10 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
     private TextView emailText;
     private ImageView qrCodeImageView;
     private TextView fbidText;
-    private Button createGroup;
     private Button logoutButton;
     private String fbid;
     private HomeActivity parentActivity;
-    private Context context;
+
 
     public static PengaturanFragment newInstance(String fbid) {
         Bundle args = new Bundle();
@@ -56,7 +55,6 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         emailText = view.findViewById(R.id.textemail);
         qrCodeImageView = view.findViewById(R.id.imagebarcode);
         fbidText = view.findViewById(R.id.textid);
-        createGroup = view.findViewById(R.id.buttonbuatgroup);
         logoutButton = view.findViewById(R.id.buttonlogout);
 
     }
@@ -64,7 +62,7 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
     public void onAttach(Context context) {
         super.onAttach(context);
         parentActivity = (HomeActivity) getActivity();
-        this.context = context;
+
     }
 
     @Nullable
@@ -81,7 +79,6 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         presenter = new PengaturanPresenter(this);
         bindViewById(view);
         addLogoutListener();
-        addGroupButtonListener();
         presenter.showProfile(fbid);
 
     }
@@ -134,14 +131,6 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         });
     }
 
-    private void addGroupButtonListener() {
-        createGroup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                parentActivity.generateNewGroupDialog();
-            }
-        });
-    }
 
     private void showNewGroupDialog() {
         FragmentManager fm = getFragmentManager();

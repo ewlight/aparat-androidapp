@@ -159,4 +159,11 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         });
         builder.create().show();
     }
+
+    public void openGroupDetailPage(int groupId) {
+        Intent intent = new Intent(HomeActivity.this, GroupDetailActivity.class);
+        intent.putExtra("groupid", groupId);
+        intent.putExtra("fbid", fbid);
+        startActivity(intent);
+    }
 }
