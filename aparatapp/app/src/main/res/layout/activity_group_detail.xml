@@ -24,7 +24,7 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src = "@drawable/toa"
+        android:src = "@drawable/icon_new_announcement"
         android:layout_gravity="center"
         android:layout_weight="1"/>
     <ImageView
