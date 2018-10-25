@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.taracorpora.aparatapp.model.AparatGroupModel;
+import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
 
 import java.io.IOException;
@@ -147,6 +148,10 @@ public class AparatNetworkManager {
 
     public Observable<List<AparatGroupModel>> getGroup(String fb) {
         return addInterceptor(aparatService.grouplist(fb));
+    }
+
+    public Observable<AparatGroupRequestModel> postNewGroup(AparatGroupRequestModel aparatGroupRequestModel) {
+        return addInterceptor(aparatService.newgroup(aparatGroupRequestModel));
     }
 
 

@@ -1,6 +1,7 @@
 package com.taracorpora.aparatapp.network;
 
 import com.taracorpora.aparatapp.model.AparatGroupModel;
+import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface AparatService {
 
     @GET("/grouplist")
     Observable<List<AparatGroupModel>> grouplist(@Query("fbid") String fbid);
+
+    @POST("/newgroup")
+    Observable<AparatGroupRequestModel> newgroup(@Body AparatGroupRequestModel aparatGroupRequestModel);
 }

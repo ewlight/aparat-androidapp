@@ -1,7 +1,9 @@
 package com.taracorpora.aparatapp;
 
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,14 +22,19 @@ import android.widget.Toast;
 
 import com.taracorpora.aparatapp.fragment.GroupFragment;
 import com.taracorpora.aparatapp.fragment.PengaturanFragment;
+import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
+import com.taracorpora.aparatapp.presenter.HomePresenter;
+import com.taracorpora.aparatapp.view.HomeView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements HomeView {
 
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private String fbid;
     TabLayout tabLayout;
+    private GroupFragment groupFragment;
+    public HomePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,7 @@ public class HomeActivity extends AppCompatActivity {
             fbid = bundle.getString("fbid");
 
         }
+        presenter = new HomePresenter(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -68,6 +76,19 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onSuccessSaveGroup(String groupNAme) {
+
+        Toast.makeText(getApplicationContext(), groupNAme + "berhasil ditambahkan", Toast.LENGTH_LONG).show();
+        mSectionsPagerAdapter.notifyDataSetChanged();
+        mViewPager.setCurrentItem(0, true);
+
+    }
+
+    @Override
+    public void onError() {
+
+    }
 
 
     /**
@@ -84,8 +105,8 @@ public class HomeActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    GroupFragment group = GroupFragment.newInstance(fbid);
-                    return  group;
+                    groupFragment = GroupFragment.newInstance(fbid);
+                    return  groupFragment;
                 case 1:
                     Pengumuman pengumuman1 = new Pengumuman();
                     return pengumuman1;
@@ -100,6 +121,11 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             return 3;
+        }
+
+        @Override
+        public int getItemPosition(@NonNull Object object) {
+            return POSITION_NONE;
         }
     }
 
@@ -120,8 +146,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 String text = textGroupName.getText().toString();
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
-                mViewPager.setCurrentItem(0, true);
+                AparatGroupRequestModel requestGroup = new AparatGroupRequestModel(text, fbid);
+                presenter.saveGroupData(requestGroup);
             }
         });
 

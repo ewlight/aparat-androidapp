@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">aparatapp</string>
-    <string name="app_nama">APARAT</string>
+    <string name="app_name">Aparat</string>
+    <string name="app_nama">Aparat V1.0</string>
     <string name="app_pengumuman">Pengumuman</string>
     <string name="facebook_app_id">1455289791152007</string>
     <string name="fb_login_protocol_scheme">fb1455289791152007</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="tab_text_1">Group</string>
     <string name="tab_text_2">Pengumuman</string>
-    <string name="tab_text_3">Pengaturan</string>
+    <string name="tab_text_3">Profile</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
 </resources>
