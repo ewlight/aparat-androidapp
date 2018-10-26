@@ -32,6 +32,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.logging.Logger;
+import com.pusher.pushnotifications.PushNotifications;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     private LoginButton fbButton;
@@ -42,9 +43,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         TAG = MainActivity.this.getClass().getSimpleName();
+
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_main);
         bindViewById();

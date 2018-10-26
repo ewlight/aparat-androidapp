@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.pusher.pushnotifications.PushNotifications;
 import com.taracorpora.aparatapp.fragment.GroupFragment;
 import com.taracorpora.aparatapp.fragment.PengaturanFragment;
 import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
@@ -40,13 +41,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         Bundle bundle = getIntent().getExtras();
-
         if (bundle != null) {
             fbid = bundle.getString("fbid");
-
         }
+        PushNotifications.start(getApplicationContext(), "455fc469-f92d-448a-92d3-c732a106ba07");
+        PushNotifications.subscribe(fbid);
         presenter = new HomePresenter(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
