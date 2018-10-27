@@ -48,6 +48,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GroupDetailActivity" />
         <activity android:name=".BarcodeScannerActivity"></activity>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/logo" />
+
     </application>
 
 </manifest>
