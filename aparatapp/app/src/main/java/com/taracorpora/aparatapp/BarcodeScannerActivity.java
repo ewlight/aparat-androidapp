@@ -1,6 +1,6 @@
 package com.taracorpora.aparatapp;
 
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +13,8 @@ import java.util.List;
 
 import info.androidhive.barcode.BarcodeReader;
 
-public class BarcodeScannerActivity extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener {
+
+public class BarcodeScannerActivity extends AppCompatActivity implements BarcodeReader.BarcodeReaderListener  {
 
     private BarcodeReader barcodeReader;
     private String TAG = BarcodeScannerActivity.class.getSimpleName();
@@ -25,12 +26,18 @@ public class BarcodeScannerActivity extends AppCompatActivity implements Barcode
         barcodeReader = (BarcodeReader) getSupportFragmentManager().findFragmentById(R.id.barcode_scanner);
     }
 
+
     @Override
     public void onScanned(Barcode barcode) {
+        Log.e(TAG, "onScanned: " + barcode.displayValue);
         barcodeReader.playBeep();
-        Log.d(TAG, "Scan value: "+barcode.displayValue);
-        Toast.makeText(getApplicationContext(), "ID Barcode: "+barcode.displayValue, Toast.LENGTH_LONG).show();
 
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getApplicationContext(), "Barcode: " + barcode.displayValue, Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -46,6 +53,12 @@ public class BarcodeScannerActivity extends AppCompatActivity implements Barcode
 
     @Override
     public void onScanError(String errorMessage) {
-        Toast.makeText(getApplicationContext(), "Gagal melakukan scanning " + errorMessage, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onCameraPermissionDenied() {
+        Toast.makeText(getApplicationContext(), "Camera permission denied!", Toast.LENGTH_LONG).show();
+        finish();
     }
 }

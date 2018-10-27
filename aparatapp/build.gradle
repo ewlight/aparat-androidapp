@@ -8,11 +8,9 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-        
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.1.1"
+        classpath 'com.google.gms:google-services:+'
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-        classpath 'com.google.gms:google-services:4.1.0'
     }
 }
 
@@ -22,12 +20,7 @@ allprojects {
         jcenter()
     }
 
-    configurations.all {
-        resolutionStrategy {
-            force "com.google.android.gms:play-services-basement:+"
-            force "com.google.android.gms:play-services-tasks:+"
-        }
-    }
+
 }
 
 task clean(type: Delete) {
