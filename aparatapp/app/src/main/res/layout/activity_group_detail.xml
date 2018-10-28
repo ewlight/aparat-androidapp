@@ -10,10 +10,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#3F51B5"
     android:id="@+id/tabadmin"
     android:paddingBottom="10dp"
-    android:paddingTop="10dp">
+    android:paddingTop="10dp"
+    android:background="#3F51B5">
     <ImageView
         android:id="@+id/image_add_new_member"
         android:layout_width="50dp"
@@ -42,8 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/listanggota"
-            android:dividerHeight="3dp"
-            android:divider="#00DBFF">
+            android:dividerHeight="3dp">
         </ListView>
 
     </LinearLayout>

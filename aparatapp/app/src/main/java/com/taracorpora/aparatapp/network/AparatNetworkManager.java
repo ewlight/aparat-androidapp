@@ -15,6 +15,7 @@ import com.taracorpora.aparatapp.model.AparatGroupMemberModel;
 import com.taracorpora.aparatapp.model.AparatGroupModel;
 import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
+import com.taracorpora.aparatapp.model.AparatNewGroupMemberModel;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -157,5 +158,9 @@ public class AparatNetworkManager {
 
     public Observable<List<AparatGroupMemberModel>> getGroupMember(int groupId) {
         return addInterceptor(aparatService.groupmember(groupId));
+    }
+
+    public Observable postGroupMember(AparatNewGroupMemberModel groupMember) {
+        return addInterceptor(aparatService.inviteNewMember(groupMember));
     }
 }

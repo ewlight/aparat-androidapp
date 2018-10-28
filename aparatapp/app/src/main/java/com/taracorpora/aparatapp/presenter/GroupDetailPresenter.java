@@ -1,6 +1,7 @@
 package com.taracorpora.aparatapp.presenter;
 
 import com.taracorpora.aparatapp.model.AparatGroupMemberModel;
+import com.taracorpora.aparatapp.model.AparatNewGroupMemberModel;
 import com.taracorpora.aparatapp.network.AparatNetworkManager;
 import com.taracorpora.aparatapp.network.GeneralNetworkHandler;
 import com.taracorpora.aparatapp.view.GroupDetailView;
@@ -30,14 +31,27 @@ public class GroupDetailPresenter implements GeneralNetworkHandler{
                         view.showGroupMember(aparatGroupMemberModels);
                     }
                 },throwable -> {
-                    view.onError();
+                    view.onError("Network Error", "System gagal memproses request anda..!");
+                });
+    }
+
+    public void saveNewMember(AparatNewGroupMemberModel groupMember) {
+        networkManager.postGroupMember(groupMember)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1() {
+                    @Override
+                    public void call(Object o) {
+                        view.updateGroupMember(groupMember);
+                    }
+                }, throwable -> {
+                    view.onError("Proses Gagal", "Maaf... System tidak bisa menambahkan member baru");
                 });
     }
 
 
     @Override
     public void onNoInternetConnection() {
-
+        view.onError("Jaringan Bermasalah", "Opps... Kami tidak bisa mengakses server aparat. Apakah anda online?");
     }
 
     @Override
@@ -48,6 +62,7 @@ public class GroupDetailPresenter implements GeneralNetworkHandler{
     @Override
     public void onFailedToProcessRequest(Response response) {
 
+        view.onError("Network Error", "Gagal Menambahkan member baru");
     }
 
     @Override

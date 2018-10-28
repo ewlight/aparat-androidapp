@@ -48,7 +48,7 @@ public class ListanggotaAdapter extends BaseAdapter {
 
         loadImage(groupMember.get(position).profilepict, imageProfile);
         textMemberName.setText(groupMember.get(position).name);
-        if(groupMember.get(position).is_admin = true) {
+        if(groupMember.get(position).is_admin == 1) {
             textMemberRole.setText("Admin");
         } else {
             textMemberRole.setText("Anggota");

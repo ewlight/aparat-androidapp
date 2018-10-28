@@ -1,6 +1,8 @@
 package com.taracorpora.aparatapp;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,12 +32,16 @@ public class BarcodeScannerActivity extends AppCompatActivity implements Barcode
     @Override
     public void onScanned(Barcode barcode) {
         Log.e(TAG, "onScanned: " + barcode.displayValue);
+        String memberid = barcode.displayValue;
         barcodeReader.playBeep();
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(getApplicationContext(), "Barcode: " + barcode.displayValue, Toast.LENGTH_SHORT).show();
+                Intent data = new Intent();
+                data.setData(Uri.parse(memberid));
+                setResult(RESULT_OK, data);
+                finish();
             }
         });
 
