@@ -54,7 +54,6 @@ dependencies {
     implementation 'com.lsjwzh:materialloadingprogressbar:0.5.8-RELEASE'
 
 
-
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -23,6 +23,7 @@
         android:layout_gravity="left"
         android:layout_weight="1"/>
     <ImageView
+        android:id="@+id/image_view_new_pengumuman"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src = "@drawable/icon_new_announcement"

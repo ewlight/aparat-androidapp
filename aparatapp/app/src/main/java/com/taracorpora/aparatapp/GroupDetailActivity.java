@@ -33,6 +33,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     GroupDetailPresenter presenter;
     CircleProgressBar progressBar;
     LinearLayout tabAdmin;
+    ImageView imageAddPengumuman;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
         listanggota = findViewById(R.id.listanggota);
         progressBar = findViewById(R.id.progressbar_group_detail);
         tabAdmin = findViewById(R.id.tabadmin);
+        imageAddPengumuman = findViewById(R.id.image_view_new_pengumuman);
     }
 
     private void showTabAdmin() {
@@ -84,6 +86,14 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
             public void onClick(View view) {
                 Intent intent = new Intent(GroupDetailActivity.this, BarcodeScannerActivity.class);
                 startActivityForResult(intent, groupId);
+            }
+        });
+
+        imageAddPengumuman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GroupDetailActivity.this, NewPengumumanActivity.class);
+                startActivity(intent);
             }
         });
     }

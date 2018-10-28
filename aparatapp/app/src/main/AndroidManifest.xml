@@ -41,17 +41,18 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GroupDetailActivity" />
-        <activity android:name=".BarcodeScannerActivity"></activity>
+        <activity android:name=".BarcodeScannerActivity" />
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/logo" />
 
+        <activity android:name=".NewPengumumanActivity"></activity>
     </application>
 
 </manifest>
