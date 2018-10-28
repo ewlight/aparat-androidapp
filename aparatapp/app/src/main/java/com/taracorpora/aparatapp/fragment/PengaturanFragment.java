@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.taracorpora.aparatapp.HomeActivity;
 import com.taracorpora.aparatapp.R;
 import com.taracorpora.aparatapp.dialog.EditNameDialogListener;
@@ -38,6 +40,8 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
     private Button logoutButton;
     private String fbid;
     private HomeActivity parentActivity;
+    private NestedScrollView scrollView;
+    private CircleProgressBar progressBar;
 
 
     public static PengaturanFragment newInstance(String fbid) {
@@ -56,7 +60,36 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         qrCodeImageView = view.findViewById(R.id.imagebarcode);
         fbidText = view.findViewById(R.id.textid);
         logoutButton = view.findViewById(R.id.buttonlogout);
+        scrollView = view.findViewById(R.id.nested_scroll_view_pengaturan);
+        progressBar = view.findViewById(R.id.progressbar_pengaturan);
 
+    }
+
+    private void showProgressBar(){
+        parentActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    private void hideProgressBar() {
+        parentActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    private void showScrollView() {
+        parentActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     public void onAttach(Context context) {
@@ -79,6 +112,7 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         presenter = new PengaturanPresenter(this);
         bindViewById(view);
         addLogoutListener();
+        showProgressBar();
         presenter.showProfile(fbid);
 
     }
@@ -90,6 +124,8 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         nameText.setText(peserta.name);
         emailText.setText(peserta.email);
         fbidText.setText(peserta.fbid);
+        hideProgressBar();
+        showScrollView();
 
     }
 

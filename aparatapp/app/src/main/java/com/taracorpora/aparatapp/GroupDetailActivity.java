@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.taracorpora.aparatapp.adapter.ListanggotaAdapter;
 import com.taracorpora.aparatapp.model.AparatGroupMemberModel;
 
@@ -29,6 +30,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     String groupName;
     ImageView imageAddNewMember;
     GroupDetailPresenter presenter;
+    CircleProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
         }
         bindViewById();
         getSupportActionBar().setTitle(groupName.toString());
+        showProgressBar();
         presenter.getGroupMember(groupId);
         setClickListener();
 
@@ -54,7 +57,18 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     private void bindViewById(){
         imageAddNewMember = findViewById(R.id.image_add_new_member);
         listanggota = findViewById(R.id.listanggota);
+        progressBar = findViewById(R.id.progressbar_group_detail);
     }
+
+    private void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+
 
     private void setClickListener() {
 
@@ -71,22 +85,26 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     public void showGroupMember(List<AparatGroupMemberModel> member) {
         adapter = new ListanggotaAdapter(this, member);
         listanggota.setAdapter(adapter);
+        hideProgressBar();
 
     }
 
     @Override
     public void onError(String title, String message) {
         dialogBuilder(title,message);
+        hideProgressBar();
     }
 
     @Override
     public void updateGroupMember(AparatNewGroupMemberModel groupMemberModel) {
         presenter.getGroupMember(groupId);
         Toast.makeText(getApplicationContext(), "Member: " + groupMemberModel.memberid + " berhasil ditambahkan ke group", Toast.LENGTH_LONG).show();
+
     }
 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        showProgressBar();
         if (requestCode == groupId) {
             if (resultCode == RESULT_OK) {
                 String invitedUser = data.getDataString();

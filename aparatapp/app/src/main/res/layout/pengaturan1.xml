@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view_pengaturan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:visibility="gone">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,4 +69,12 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+    android:id="@+id/progressbar_pengaturan"
+    style="@style/MaterialProgressbar"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    app:mlpb_enable_circle_background="false"
+    app:mlpb_progress_color="@color/colorPrimary"
+    android:visibility="gone" />
 </RelativeLayout>

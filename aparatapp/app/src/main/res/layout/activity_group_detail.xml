@@ -34,16 +34,24 @@
         android:layout_gravity="right"
         android:layout_weight="1"/>
 </LinearLayout>
-    <LinearLayout
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/tabadmin">
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tabadmin">
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/listanggota"
-            android:dividerHeight="3dp">
-        </ListView>
+        android:layout_height="wrap_content"
+        android:id="@+id/listanggota"
+        android:dividerHeight="3dp">
+    </ListView>
 
-    </LinearLayout>
+</LinearLayout>
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+        android:id="@+id/progressbar_group_detail"
+        style="@style/MaterialProgressbar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:mlpb_enable_circle_background="false"
+        app:mlpb_progress_color="@color/colorPrimary"
+        android:visibility="gone" />
 </RelativeLayout>
