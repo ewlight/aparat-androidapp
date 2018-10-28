@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     ImageView imageAddNewMember;
     GroupDetailPresenter presenter;
     CircleProgressBar progressBar;
+    LinearLayout tabAdmin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +60,11 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
         imageAddNewMember = findViewById(R.id.image_add_new_member);
         listanggota = findViewById(R.id.listanggota);
         progressBar = findViewById(R.id.progressbar_group_detail);
+        tabAdmin = findViewById(R.id.tabadmin);
+    }
+
+    private void showTabAdmin() {
+        tabAdmin.setVisibility(View.VISIBLE);
     }
 
     private void showProgressBar() {
@@ -85,8 +92,20 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     public void showGroupMember(List<AparatGroupMemberModel> member) {
         adapter = new ListanggotaAdapter(this, member);
         listanggota.setAdapter(adapter);
+        checkMemberIsAdmin(member);
         hideProgressBar();
 
+    }
+
+    public void checkMemberIsAdmin(List<AparatGroupMemberModel> member) {
+        for(int i = 0; i<= member.size(); i++) {
+            if(member.get(i).idfb.equalsIgnoreCase(fbid)) {
+                if(member.get(i).is_admin == 1) {
+                    showTabAdmin();
+                    break;
+                }
+            }
+        }
     }
 
     @Override
