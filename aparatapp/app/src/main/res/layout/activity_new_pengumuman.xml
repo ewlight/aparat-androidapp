@@ -7,57 +7,59 @@
     tools:context=".GroupDetailActivity">
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingTop="60dp">
+        android:layout_marginTop="10dp"
+        android:gravity="top">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_name"
+            android:id="@+id/input_layout_judul_rapat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/input_name"
+                android:id="@+id/input_judul_rapat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:hint="Topic Rapat" />
+                android:hint="Judul Rapat" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_email"
+            android:id="@+id/input_layout_tanggal_rapat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/input_email"
+                android:id="@+id/input_tanggal_rapat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Topic Rapat" />
+                android:inputType="none"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="Tanggal Rapat" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password"
+            android:id="@+id/input_layout_jam_rapat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/input_password"
+                android:id="@+id/input_jam_rapat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Topic Rapat" />
+                android:inputType="none"
+                android:hint="Jam Rapat" />
         </android.support.design.widget.TextInputLayout>
 
         <Button android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Topic Rapat"
+            android:text="Buat Pengumuman"
             android:background="@color/colorPrimary"
             android:layout_marginTop="40dp"
             android:textColor="@android:color/white"/>
