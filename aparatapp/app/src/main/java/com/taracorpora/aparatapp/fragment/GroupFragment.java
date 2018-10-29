@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.taracorpora.aparatapp.HomeActivity;
 import com.taracorpora.aparatapp.R;
 import com.taracorpora.aparatapp.adapter.AparatGroupAdapter;
@@ -37,6 +38,7 @@ public class GroupFragment extends Fragment implements GroupView {
     private AparatGroupAdapter groupAdapter;
     private Context context;
     private FloatingActionButton newGroupButton;
+    private CircleProgressBar progressBar;
 
 
     public static GroupFragment newInstance(String fbid) {
@@ -62,6 +64,11 @@ public class GroupFragment extends Fragment implements GroupView {
         presenter = new GroupPresenter(this);
         bindViewById(view);
         addNewGroupButtonListener();
+        fetchData();
+    }
+
+    public void fetchData() {
+        showProgressBar();
         presenter.getListGroup(fbid);
     }
 
@@ -69,6 +76,15 @@ public class GroupFragment extends Fragment implements GroupView {
     public void bindViewById(View view) {
         newGroupButton = view.findViewById(R.id.button_add_new_group);
         listView = view.findViewById(R.id.listview_group_list);
+        progressBar = view.findViewById(R.id.progressbar_group_fragment);
+    }
+
+    public void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
     }
 
     public void addNewGroupButtonListener() {
@@ -110,7 +126,14 @@ public class GroupFragment extends Fragment implements GroupView {
                 parentActivity.openGroupDetailPage(listGroup.get(i).id, listGroup.get(i).name);
             }
         });
+        hideProgressBar();
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fetchData();
     }
 
 

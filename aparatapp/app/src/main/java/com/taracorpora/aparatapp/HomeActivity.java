@@ -17,9 +17,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.pusher.pushnotifications.PushNotifications;
 import com.taracorpora.aparatapp.fragment.GroupFragment;
 import com.taracorpora.aparatapp.fragment.PengaturanFragment;
@@ -36,6 +38,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     TabLayout tabLayout;
     private GroupFragment groupFragment;
     public HomePresenter presenter;
+    private CircleProgressBar progressBar;
+    private  Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +52,30 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         PushNotifications.start(getApplicationContext(), "455fc469-f92d-448a-92d3-c732a106ba07");
         PushNotifications.subscribe(fbid);
         presenter = new HomePresenter(this);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        bindViewById();
         setSupportActionBar(toolbar);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        addListener();
 
+    }
+
+    private void bindViewById() {
+        toolbar = findViewById(R.id.toolbar);
+        mViewPager = findViewById(R.id.container);
         tabLayout = findViewById(R.id.tabs);
+        progressBar = findViewById(R.id.progressbar_home_activity);
+    }
 
+    public void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    private void addListener() {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }
@@ -78,8 +98,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @Override
     public void onSuccessSaveGroup(String groupNAme) {
-
-        Toast.makeText(getApplicationContext(), groupNAme + "berhasil ditambahkan", Toast.LENGTH_LONG).show();
+        hideProgressBar();
+        Toast.makeText(getApplicationContext(), groupNAme + " berhasil ditambahkan", Toast.LENGTH_LONG).show();
         mSectionsPagerAdapter.notifyDataSetChanged();
         mViewPager.setCurrentItem(0, true);
 
@@ -147,6 +167,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
             public void onClick(DialogInterface dialogInterface, int i) {
                 String text = textGroupName.getText().toString();
                 AparatGroupRequestModel requestGroup = new AparatGroupRequestModel(text, fbid);
+                showProgressBar();
                 presenter.saveGroupData(requestGroup);
             }
         });

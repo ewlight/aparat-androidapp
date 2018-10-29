@@ -21,5 +21,13 @@
         android:src="@drawable/plus_icon"
         android:layout_marginBottom="100dp"
         android:layout_marginRight="50dp"/>
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+        android:id="@+id/progressbar_group_fragment"
+        style="@style/MaterialProgressbar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:mlpb_enable_circle_background="false"
+        app:mlpb_progress_color="@color/colorPrimary"
+        android:visibility="gone" />
 
 </RelativeLayout>

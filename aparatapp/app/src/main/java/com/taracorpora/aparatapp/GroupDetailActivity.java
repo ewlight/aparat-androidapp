@@ -35,6 +35,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     LinearLayout tabAdmin;
     ImageView imageAddPengumuman;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,11 +70,11 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
         tabAdmin.setVisibility(View.VISIBLE);
     }
 
-    private void showProgressBar() {
+    public void showProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
     }
 
-    private void hideProgressBar() {
+    public void hideProgressBar() {
         progressBar.setVisibility(View.GONE);
     }
 
@@ -108,7 +109,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
     }
 
     public void checkMemberIsAdmin(List<AparatGroupMemberModel> member) {
-        for(int i = 0; i<= member.size(); i++) {
+        for(int i = 0; i< member.size(); i++) {
             if(member.get(i).idfb.equalsIgnoreCase(fbid)) {
                 if(member.get(i).is_admin == 1) {
                     showTabAdmin();

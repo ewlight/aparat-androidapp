@@ -58,4 +58,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+        android:id="@+id/progressbar_home_activity"
+        style="@style/MaterialProgressbar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:mlpb_enable_circle_background="false"
+        app:mlpb_progress_color="@color/colorPrimary"
+        android:visibility="gone" />
+
 </android.support.design.widget.CoordinatorLayout>
