@@ -6,65 +6,173 @@
     android:layout_height="match_parent"
     tools:context=".GroupDetailActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+    <TextView
+        android:id="@+id/title_judul_rapat"
+        style="@style/SmallText.bold"
+        android:text="Judul Rapat"
         android:layout_marginTop="10dp"
-        android:gravity="top">
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_judul_rapat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/judul_rapat_card"
+        style="@style/BasicCard"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/title_judul_rapat">
+        <LinearLayout
+            style="@style/FitWidth"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_between_component_long">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/description_icon"/>
 
             <EditText
                 android:id="@+id/input_judul_rapat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:hint="Judul Rapat" />
-        </android.support.design.widget.TextInputLayout>
+                style="@style/formPengumuman"
+                android:hint="Judul Rapat"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_tanggal_rapat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-            <EditText
-                android:id="@+id/input_tanggal_rapat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none"
-                android:editable="false"
-                android:focusable="false"
-                android:hint="Tanggal Rapat" />
-        </android.support.design.widget.TextInputLayout>
+    <TextView
+        android:id="@+id/title_tanggal_rapat"
+        android:layout_below="@+id/judul_rapat_card"
+        style="@style/SmallText.bold"
+        android:text="Tanggal Rapat"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_jam_rapat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/input_jam_rapat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none"
-                android:hint="Jam Rapat" />
-        </android.support.design.widget.TextInputLayout>
-
-        <Button android:id="@+id/btn_signup"
-            android:layout_width="fill_parent"
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tanggal_rapat_card"
+        style="@style/PickerCard"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/title_tanggal_rapat">
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buat Pengumuman"
-            android:background="@color/colorPrimary"
-            android:layout_marginTop="40dp"
-            android:textColor="@android:color/white"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_between_component_long">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/new_calendar_icon"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/input_tanggal_rapat"
+                style="@style/formPengumuman"
+                android:hint="yyyy-mm-dd" />
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_triangle_blue"
+                android:layout_marginLeft="20dp" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/title_jam_rapat"
+        android:layout_below="@+id/tanggal_rapat_card"
+        style="@style/SmallText.bold"
+        android:text="Jam Rapat"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"/>
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/jam_rapat_card"
+        style="@style/PickerCard"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/title_jam_rapat">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_between_component_long">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_time"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/input_jam_rapat"
+                style="@style/formPengumuman"
+                android:hint="hh:mm" />
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_triangle_blue"
+                android:layout_marginLeft="20dp" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/title_description_rapat"
+        style="@style/SmallText.bold"
+        android:text="Deskripsi Rapat"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/jam_rapat_card"/>
+
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/description_rapat_card"
+        style="@style/BasicCard"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/title_description_rapat">
+        <LinearLayout
+            style="@style/FitWidth"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_between_component_long">
+
+
+
+            <EditText
+                android:id="@+id/input_deskripsi_rapat"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                style="@style/formDeskripsi"
+                android:inputType="textMultiLine"
+                android:gravity="top"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <Button android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buat Pengumuman Rapat"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/description_rapat_card"
+        android:layout_alignParentBottom="true"/>
+
+
+
+
     <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
         android:id="@+id/progressbar_group_detail"
         style="@style/MaterialProgressbar"

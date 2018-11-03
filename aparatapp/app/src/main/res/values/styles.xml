@@ -19,6 +19,92 @@
         <item name="android:layout_width">@dimen/size_material_progressbar</item>
         <item name="android:layout_margin">@dimen/margin_between_component_long</item>
         <item name="android:visibility">gone</item>
-    </style>    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="FitWidth">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="formPengumuman"
+        parent="FitWidth">
+        <item name="android:textColor">@color/bg.base.text</item>
+        <item name="android:layout_marginLeft">@dimen/margin_between_component</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:inputType">text</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="formDeskripsi">
+
+        <item name="android:textColor">@color/bg.base.text</item>
+        <item name="android:layout_marginLeft">@dimen/margin_between_component</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:imeOptions">actionSearch</item>
+
+    </style>
+    <style name="CardView">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="cardCornerRadius">5dp</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+    <style name="BasicCard"
+        parent="CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardMaxElevation">@dimen/card_elevation_max</item>
+    </style>
+    <style name="PickerCard"
+        parent="CardView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardMaxElevation">@dimen/card_elevation_max</item>
+
+    </style>
+    <style name="SmallText"
+        parent="WrapContent">
+        <item name="android:textSize">@dimen/base_text_small</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="WrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SmallText.bold"
+        parent="SmallText">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RoundedEditText.Wrap"
+        parent="RoundedEditText">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="RoundedEditText"
+        parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">@dimen/padding_between_component_long</item>
+        <item name="android:background">@drawable/white_rounded_border</item>
+        <item name="android:textSize">@dimen/base_text_small</item>
+        <item name="android:textColorHint">@color/bg.base.grey</item>
+        <item name="android:textColor">@color/bg.base.text</item>
+        <item name="android:textCursorDrawable">@drawable/custom_edit_text_cursor</item>
+    </style>
 
 </resources>

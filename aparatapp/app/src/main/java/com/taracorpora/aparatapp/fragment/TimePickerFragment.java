@@ -2,15 +2,27 @@ package com.taracorpora.aparatapp.fragment;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
 import android.widget.TimePicker;
 
+import com.taracorpora.aparatapp.NewPengumumanActivity;
+
 import java.util.Calendar;
 
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
+
+    NewPengumumanActivity parentActivity;
+    Context context;
+
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        parentActivity = (NewPengumumanActivity) getActivity();
+        this.context = context;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -25,6 +37,7 @@ public class TimePickerFragment extends DialogFragment
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
+        String jam = hourOfDay + ":"+minute;
+        parentActivity.bindDataJam(jam);
     }
 }

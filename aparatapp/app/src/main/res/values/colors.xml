@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="bg.base.text">#757575</color>
+    <color name="transparent">#0000FFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="bg.base.grey">#DDDDDD</color>
+    <color name="separator_background">#DADADA</color>
+    <color name="aparat_green">#8DC63F</color>
+
 </resources>
