@@ -3,72 +3,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/nested_scroll_view_pengaturan"
+    <LinearLayout
+        android:id="@+id/container_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone">
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/grouplogo"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"
+            />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:text="Kadek Bintang"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textnama"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="email"
+            android:id="@+id/textemail"
+            />
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/grouplogo"
+            android:layout_marginTop="10dp"
+            android:id="@+id/imagebarcode"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID User"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textid"
+            />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/grouplogo"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kadek Bintang"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:id="@+id/textnama"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="email"
-                android:id="@+id/textemail"
-                />
-                <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/grouplogo"
-                android:layout_marginTop="10dp"
-                android:id="@+id/imagebarcode"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID User"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:id="@+id/textid"
-                />
-            
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="LOG OUT"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:id="@+id/buttonlogout"
-                android:background="#3B5998"
-                android:textColor="#FFFFFF"
-                />
 
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="LOG OUT"
+        android:id="@+id/buttonlogout"
+        android:background="#3B5998"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55dp"/>
     <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
     android:id="@+id/progressbar_pengaturan"
     style="@style/MaterialProgressbar"

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +41,7 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
     private Button logoutButton;
     private String fbid;
     private HomeActivity parentActivity;
-    private NestedScrollView scrollView;
+    private LinearLayout containerView;
     private CircleProgressBar progressBar;
 
 
@@ -60,7 +61,7 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         qrCodeImageView = view.findViewById(R.id.imagebarcode);
         fbidText = view.findViewById(R.id.textid);
         logoutButton = view.findViewById(R.id.buttonlogout);
-        scrollView = view.findViewById(R.id.nested_scroll_view_pengaturan);
+        containerView = view.findViewById(R.id.container_view);
         progressBar = view.findViewById(R.id.progressbar_pengaturan);
 
     }
@@ -87,7 +88,7 @@ public class PengaturanFragment extends Fragment implements PengaturanView, Edit
         parentActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                scrollView.setVisibility(View.VISIBLE);
+                containerView.setVisibility(View.VISIBLE);
             }
         });
     }
