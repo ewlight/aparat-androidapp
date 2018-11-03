@@ -142,6 +142,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
                 presenter.saveNewMember(newGroup);
             }
         }
+        hideProgressBar();
     }
 
     public void dialogBuilder(String title, String message) {
