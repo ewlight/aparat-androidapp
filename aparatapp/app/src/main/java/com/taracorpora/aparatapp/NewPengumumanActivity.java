@@ -7,6 +7,8 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -39,6 +41,10 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
     public EditText inputJudulRapat;
     public EditText inputDeskripsiRapat;
     private NewPengumumanPresenter presenter;
+    private CardView cardTanggalRapat;
+    private CardView cardJamRapat;
+    private String TAG = NewPengumumanActivity.class.getSimpleName();
+    public String groupName;
 
 
     @Override
@@ -49,9 +55,10 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
         if (bundle != null) {
             fbid = bundle.getString("fbid");
             groupId = bundle.getInt("groupid");
+            groupName = bundle.getString("grupname");
         }
         bindViewById();
-        getSupportActionBar().setTitle("Pengumuman Baru");
+        getSupportActionBar().setTitle("Pengumuman Baru - "+ groupName);
         presenter = new NewPengumumanPresenter(this);
         addDatePickerListener();
         addTimePickerListener();
@@ -65,6 +72,8 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
         inputJudulRapat = findViewById(R.id.input_judul_rapat);
         inputDeskripsiRapat = findViewById(R.id.input_deskripsi_rapat);
         progressBar = findViewById(R.id.progressbar_new_rapat);
+        cardTanggalRapat = findViewById(R.id.tanggal_rapat_card);
+        cardJamRapat = findViewById(R.id.jam_rapat_card);
     }
 
     private void showProgressBar() {
@@ -91,9 +100,10 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
         judulrapat = inputJudulRapat.getText().toString();
         deskripsiRapat = inputDeskripsiRapat.getText().toString();
         if(tanggal.equalsIgnoreCase("") || jam.equalsIgnoreCase("") || judulrapat.equalsIgnoreCase("") || deskripsiRapat.equalsIgnoreCase("")) {
+            hideProgressBar();
             dialogBuilder("Isian Tidak Lengkap", "Mohon mengisi semua isian !!!");
         } else {
-            showProgressBar();
+
             AparatNewPengumuman pengumuman = new AparatNewPengumuman();
             pengumuman.nama = judulrapat;
             pengumuman.jam = jam;
@@ -101,14 +111,14 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
             pengumuman.deskripsi = deskripsiRapat;
             pengumuman.admin = fbid;
             pengumuman.idgroup = groupId;
-            //presenter.saveNewPengumuman(pengumuman);
+            presenter.saveNewPengumuman(pengumuman);
         }
 
 
     }
 
     private void addDatePickerListener() {
-        textTanggal.setOnClickListener(new View.OnClickListener() {
+        cardTanggalRapat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogFragment newFragment = new DatePickerFragment();
@@ -120,7 +130,7 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
     }
 
     private void addTimePickerListener() {
-        textJam.setOnClickListener(new View.OnClickListener() {
+        cardJamRapat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogFragment timeFragment = new TimePickerFragment();
@@ -133,6 +143,7 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
         btnPengumumanRapat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showProgressBar();
                 populateData();
             }
         });
@@ -153,7 +164,6 @@ public class NewPengumumanActivity extends AppCompatActivity implements NewPengu
     public void onSuccessCreatePengumuman() {
         hideProgressBar();
         dialogBuilder("Proses Berhasil", "Pengumuman Rapat berhasil dibuat");
-
     }
 
     @Override

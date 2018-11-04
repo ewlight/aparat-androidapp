@@ -64,7 +64,7 @@
         android:background="#3B5998"
         android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="55dp"/>
+        android:layout_marginBottom="57dp"/>
     <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
     android:id="@+id/progressbar_pengaturan"
     style="@style/MaterialProgressbar"

@@ -96,6 +96,7 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
                 Intent intent = new Intent(GroupDetailActivity.this, NewPengumumanActivity.class);
                 intent.putExtra("fbid", fbid);
                 intent.putExtra("groupid", groupId);
+                intent.putExtra("grupname", groupName);
                 startActivity(intent);
             }
         });

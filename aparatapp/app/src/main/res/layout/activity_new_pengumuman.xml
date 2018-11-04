@@ -164,14 +164,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buat Pengumuman Rapat"
-        android:background="@color/colorPrimary"
         android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
         android:textColor="@android:color/white"
         android:layout_below="@+id/description_rapat_card"
         android:layout_alignParentBottom="true"/>
-
-
-
 
     <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
         android:id="@+id/progressbar_new_rapat"
@@ -180,5 +177,5 @@
         android:layout_centerVertical="true"
         app:mlpb_enable_circle_background="false"
         app:mlpb_progress_color="@color/colorPrimary"
-        android:visibility="gone" />
+        android:visibility="visible" />
 </RelativeLayout>
