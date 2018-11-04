@@ -160,7 +160,7 @@
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
-    <Button android:id="@+id/btn_signup"
+    <Button android:id="@+id/btn_pengumuman_rapat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buat Pengumuman Rapat"
@@ -174,7 +174,7 @@
 
 
     <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
-        android:id="@+id/progressbar_group_detail"
+        android:id="@+id/progressbar_new_rapat"
         style="@style/MaterialProgressbar"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"

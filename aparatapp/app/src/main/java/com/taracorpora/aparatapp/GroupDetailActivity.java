@@ -94,6 +94,8 @@ public class GroupDetailActivity extends AppCompatActivity implements GroupDetai
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(GroupDetailActivity.this, NewPengumumanActivity.class);
+                intent.putExtra("fbid", fbid);
+                intent.putExtra("groupid", groupId);
                 startActivity(intent);
             }
         });

@@ -3,6 +3,7 @@ package com.taracorpora.aparatapp.network;
 import com.taracorpora.aparatapp.model.AparatGroupMemberModel;
 import com.taracorpora.aparatapp.model.AparatGroupModel;
 import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
+import com.taracorpora.aparatapp.model.AparatNewPengumuman;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
 import com.taracorpora.aparatapp.model.AparatNewGroupMemberModel;
 
@@ -32,4 +33,7 @@ public interface AparatService {
 
     @POST("/invitemember")
     Observable<AparatGroupMemberModel> inviteNewMember(@Body AparatNewGroupMemberModel groupMember);
+
+    @POST("/newpengumuman")
+    Observable<AparatNewPengumuman> newPengumuman(@Body AparatNewPengumuman newPengumuman);
 }
