@@ -58,6 +58,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         addListener();
+        mViewPager.setCurrentItem(1, true);
 
     }
 
