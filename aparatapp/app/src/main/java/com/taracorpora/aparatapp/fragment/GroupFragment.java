@@ -113,6 +113,7 @@ public class GroupFragment extends Fragment implements GroupView {
 
     @Override
     public void onError() {
+        hideProgressBar();
 
     }
 

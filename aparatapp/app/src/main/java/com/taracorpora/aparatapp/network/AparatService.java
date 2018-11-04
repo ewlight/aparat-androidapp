@@ -4,6 +4,7 @@ import com.taracorpora.aparatapp.model.AparatGroupMemberModel;
 import com.taracorpora.aparatapp.model.AparatGroupModel;
 import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
 import com.taracorpora.aparatapp.model.AparatNewPengumuman;
+import com.taracorpora.aparatapp.model.AparatPengumumanModel;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
 import com.taracorpora.aparatapp.model.AparatNewGroupMemberModel;
 
@@ -36,4 +37,7 @@ public interface AparatService {
 
     @POST("/newpengumuman")
     Observable<AparatNewPengumuman> newPengumuman(@Body AparatNewPengumuman newPengumuman);
+
+    @GET("/listrapatbyid")
+    Observable<List<AparatPengumumanModel>> listPengumuman(@Query("fbid") String fbid);
 }

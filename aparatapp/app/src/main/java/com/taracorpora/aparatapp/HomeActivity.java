@@ -25,6 +25,7 @@ import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.pusher.pushnotifications.PushNotifications;
 import com.taracorpora.aparatapp.fragment.GroupFragment;
 import com.taracorpora.aparatapp.fragment.PengaturanFragment;
+import com.taracorpora.aparatapp.fragment.PengumumanFragment;
 import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
 import com.taracorpora.aparatapp.presenter.HomePresenter;
 import com.taracorpora.aparatapp.view.HomeView;
@@ -128,8 +129,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
                     groupFragment = GroupFragment.newInstance(fbid);
                     return  groupFragment;
                 case 1:
-                    Pengumuman pengumuman1 = new Pengumuman();
-                    return pengumuman1;
+                    PengumumanFragment pengumuman = PengumumanFragment.newInstance(fbid);
+                    return pengumuman;
                 case 2:
                     PengaturanFragment pengaturanFragment1 = PengaturanFragment.newInstance(fbid);
                     return pengaturanFragment1;

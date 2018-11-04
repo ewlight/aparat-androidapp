@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <ListView
+        android:id="@+id/listview_pengumuman_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+        android:id="@+id/progressbar_pengumuman_fragment"
+        style="@style/MaterialProgressbar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:mlpb_enable_circle_background="false"
+        app:mlpb_progress_color="@color/colorPrimary"
+        android:visibility="gone" />
+</RelativeLayout>

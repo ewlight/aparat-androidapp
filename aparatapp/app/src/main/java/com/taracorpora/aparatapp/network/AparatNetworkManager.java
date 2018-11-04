@@ -15,6 +15,7 @@ import com.taracorpora.aparatapp.model.AparatGroupMemberModel;
 import com.taracorpora.aparatapp.model.AparatGroupModel;
 import com.taracorpora.aparatapp.model.AparatGroupRequestModel;
 import com.taracorpora.aparatapp.model.AparatNewPengumuman;
+import com.taracorpora.aparatapp.model.AparatPengumumanModel;
 import com.taracorpora.aparatapp.model.AparatPesertaModel;
 import com.taracorpora.aparatapp.model.AparatNewGroupMemberModel;
 
@@ -167,5 +168,9 @@ public class AparatNetworkManager {
 
     public Observable postNewPengumuman(AparatNewPengumuman newPengumuman) {
         return  addInterceptor(aparatService.newPengumuman(newPengumuman));
+    }
+
+    public Observable<List<AparatPengumumanModel>> getListPengumuman(String fbid) {
+        return addInterceptor(aparatService.listPengumuman(fbid));
     }
 }
